@@ -1,0 +1,67 @@
+body{
+background-color: lightblue;
+
+}
+
+.content{
+    
+    padding: 200px;
+    
+    vertical-align: middle;
+    
+}
+#content_author{
+    position: absolute;
+    right:20%;
+}
+#content_date{
+    position: absolute;
+    right:20%;
+}
+#picture{
+    text-align: center;
+    width:100%;
+}
+table {
+    width: 100%;
+}
+th, td {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid black;
+    
+   
+}
+#more{
+    border-style:dotted;
+    list-style: circle; 
+}
+.message{
+    padding: 40px;
+    border-style:dotted;
+    list-style: circle; 
+}
+#MyBlog{
+    position: fixed; 
+    top: 50%;  
+    right: -80px;  
+    background: lightpink;  
+    padding: 30px 40px;
+    border-radius: 10px;  
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+#MyBlog:hover{  
+    right: -10px;
+}
+#MyBlog #title{
+    padding-right: 5px;  
+}
+p:hover, h1:hover, a:hover, table:hover, h2:hover {
+    background-color: yellow;
+}
+#change_font{
+    position:fixed;
+    top: 10px;
+    right: 350px;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+                <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+        <script>
+        var config = {
+            apiKey: "AIzaSyAqvSCM7WmMYAYJJPJw2q59uTTivDFu-kE",
+            authDomain: "homework3-b7c20.firebaseapp.com",
+            databaseURL: "https://homework3-b7c20.firebaseio.com",
+            projectId: "homework3-b7c20",
+            storageBucket: "homework3-b7c20.appspot.com",
+            messagingSenderId: "390650370164"
+        };
+        firebase.initializeApp(config);
+        var storageRef = firebase.storage().ref();
+        
+        storageRef.child('1.jpg').getDownloadURL().then(function (url) {
+                document.getElementById('pic_one').src = url;
+            }
+        ); 
+        
+        storageRef.child('2.jpg').getDownloadURL().then(function (url) {
+                document.getElementById('pic_two').src = url;
+            }
+        );
+        
+        storageRef.child('3.jpg').getDownloadURL().then(function (url) {
+                document.getElementById('pic_three').src = url;
+            }
+        );
+
+
+        var storage = firebase.storage();
+   var storageRef = firebase.storage().ref();
+   function uploadComment() { 
+         var d = new Date();
+         var n = d.getTime();
+         var afuRef = storageRef.child('texts/secret-message-' + n + '.txt');
+         if (document.getElementById("name").value.length == 0) {
+             document.getElementById('name').placeholder = "請輸入";
+             if (document.getElementById("commend").value.length == 0) {
+                 document.getElementById('commend').placeholder = "請輸入";
+             }
+         }
+         else if (document.getElementById("commend").value.length == 0) {
+             document.getElementById('commend').placeholder = "請輸入";
+             if (document.getElementById("name").value.length == 0) {
+                 document.getElementById('name').placeholder = "請輸入";
+             }
+         }
+         else {
+             afuRef.putString(document.getElementById("name").value + "\r\n\r\n" + document.getElementById("commend").value).then(function (snapshot) {
+                 console.log("上傳成功");
+                 document.getElementById("name").value = "";
+                 document.getElementById("commend").value = "";
+                 document.getElementById('name').placeholder = "";
+                 document.getElementById('commend').placeholder = "";
+             });
+         }
+     }
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>諾基亞換血回歸　獨家專訪背後操盤手</title>
+        <link rel ="stylesheet" href="index.css">
+        <script type="text/javascript" src ="index.js"></script>
+    </head>
+    <body>
+        <div id ="change_font">
+            <button onclick="small()">small</button>
+            <button onclick="medium()">medium</button>
+            <button onclick="large()">large</button>
+        </div>
+        <div class = "content">
+            <div class ="center_topic"><h1>諾基亞換血回歸　獨家專訪背後操盤手</h1></div>
+            
+            <div id = "content_author">文／顏瓊玉／商業周刊</div><br>
+            <div id ="content_date">2017/03/10</div><br>
+            <p>諾基亞（Nokia）重返智慧型手機市場，其推出的3310復古機種，在剛結束的世界行動通訊大會中備受注目。</p>
+
+            <p>這群人如何把冷灶燒熱？從換掉名字開始。實際上，操盤手是一家芬蘭新創公司HMD Global。這家2016年5月成立的公司，獲得諾基亞品牌授權10年，員工名片上全印上「The home of Nokia phones.（諾基亞手機的新家）」，而印有名字的那一面還有藍色諾基亞的商標，這家公司根本是為諾基亞而生。
+
+            但HMD管理高層根本不「新」，從總裁、執行長到營運長等，攤開資歷，皆諾基亞老兵，公司7成員工來自諾基亞，說它流著諾基亞的血一點都不為過。</p>
+
+            <p>這樣的HMD和舊諾基亞什麼不同？真的能讓諾基亞復活嗎？ </p>
+
+            <h2>從自產自銷，變三角合作</h2>
+
+            <p>「<b>確實，我們有很多諾基亞老人，但也有很多新人，我離開諾基亞這6年，做了很多不一樣的事情，開發遊戲、電影，甚至投入烘焙、去做巧克力！</b>」3月6日，HMD行銷長蘭塔拉接受《商業周刊》獨家專訪時為此辯護，他的諾基亞年資有17年，離開後曾出任知名手遊《憤怒鳥》製作公司Rovio的執行長。
+            蘭塔拉等HMD高層無法抹去自己在諾基亞的資歷，但他們改變作風了。</p>
+
+
+            <img id = "pic_one"  width="800" alt="pic_one"/>
+            
+            
+            <p>▲HMD 行銷長蘭塔拉來台為諾基亞新機造勢，談及Google：「我們非常緊密。」圖為新款智慧型手機Nokia 6。（圖／楊文財攝影／商業周刊提供）</p>
+            <img id = "pic_two"  width="800" alt="pic_two"/>
+            <p>▲Nokia Lumia 925 4.5吋雙核心手機</p>
+            <img id = "pic_three"  width="800" alt="pic_three"/>
+            <p>▲Nokia 未來 Android 手機</p>
+            <p>改變，就是大力擁抱Google，與其手機作業系統安卓。</p>
+
+            <p>與早年諾基亞從研發、生產、製造全部自己來的重資產經營模式不同，HMD採取了一種獨特的三角合作模式：諾基亞提供品牌授權和技術支援、富智康國際控股有限公司負責研發和生產製造，Google則提供軟體和服務。
+
+            這項商業模式，讓HMD得以用500人，就能在全球操作一個手機品牌，相較蘋果有11萬6千人、宏達電有上萬人，HMD走輕資產路線，它只要聚焦打造品牌。
+
+            但這對消費者有何意義？HMD打造的產品，跟三星、HTC有何不同？</p>
+
+            <p>沒有談太多硬體規格，蘭塔拉在專訪時大概說了10次，強調諾基亞新手機在骨子裡是純粹的安卓「pure Android」，這是諾基亞與其他10億支安卓手機差異化之所在。</p>
+
+            <h2>捨棄多功能，改走簡單風</h2>
+
+            <p>Google發展安卓系統已10年，這套開放的作業系統歡迎各品牌自我打造，如果安卓是骨架，那麼不管是三星還是HTC，都會再打造一層皮膚覆蓋上去，讓手機看上去更有自己的風格；但也衍生許多問題，最為人詬病的就是安全漏洞，及各種讓消費者無法移除的客製化App，最後的結果是，會讓系統負載較重，運作效率降低。
+
+            現在，HMD意圖用老品牌，加上簡單化的因子，在已經成長遲緩的戰局中，找到出路。而復古的手機3310，自2000年起，在全球銷售累計高達1億3千萬支，內建經典的手機遊戲「貪吃蛇」；如今17年後再現，依舊原汁原味，單機售價49歐元，沒有Wi-Fi、GPS、通話時間可達22小時、但只支援2G網路，代表你只能通話，不能做其他事。
+
+            但以台灣將在今年6月底關閉2G訊號來看，功能性手機絕不會領導手機的未來，且只會越來越萎縮。短期看來，諾基亞回歸，確實引起話題，「<b>3310成功喚醒大眾對諾基亞品牌的認知，至少這是一次非常成功的行銷活動。</b>」遠傳電信副總經理杜偉昱說。
+
+            然而長期而言，諾基亞能否闖出一條新路，仍有待觀察。現在，它的回歸之路，卻採取極端的創新實驗，對過去的諾基亞粉絲而言，滋味難以言喻。</p>
+            <div class ="table">
+              <div id="table_topic"><h2>Nokia 經典手機年份表</h2></div><br>
+                <table>
+                <tr>
+                    <th>年分</th>
+                    <th>型號</th> 
+                    
+                </tr>
+                <tr>
+                    <th>1985</th>
+                    <th>Mobira Talkman</th>
+                    
+                </tr>
+                <tr>
+                    <th>1993</th>
+                    <th>Nokia1011</th>
+                </tr>
+                <tr>
+                    <th>1996</th>
+                    <th>Nokia8110</th>
+                    
+                </tr>
+                <tr>
+                    <th>1998</th>
+                    <th>Nokia5110</th>
+                </tr>                
+                <tr>
+                    <th>1999</th>
+                    <th>Nokia3210</th>
+                </tr>                
+                <tr>
+                    <th>1999</th>
+                    <th>Nokia8210</th>
+                </tr>
+                <tr>
+                    <th>2002</th>
+                    <th>Nokia6800</th>
+                </tr>
+                <tr>
+                    <th>2003</th>
+                    <th>Nokia3300</th>
+                </tr>
+                <tr>
+                    <th>2005</th>
+                    <th>Nokia8800</th>
+                </tr>
+                <tr>
+                    <th>2005</th>
+                    <th>Nokia3250</th>
+                </tr>
+                <tr>
+                    <th>2012</th>
+                    <th>808 Pureview</th>
+                </tr>
+                <tr>
+                    <th>2013</th>
+                    <th>Lumia 1020</th>
+                </tr>
+                </table>
+            </div><br>
+            <div id="more"><h2>延伸閱讀：</h2><br>
+                <ul>
+                    <li><a href="http://www.setn.com/News.aspx?NewsID=231572">昔日霸主回歸！Nokia 6、底片大廠柯達搶手機市場</a><br></li>
+                    <li><a href="https://taiwanese.win/22038">谷歌與知名牛仔褲合作 推可感應智慧外套</a>  </li>
+                </ul>
+            </div>
+            
+            <HR size="10" align="center" width="100%">                      
+                        <div class="message">
+                            <h2><b>留言給我 :</b></h2>
+                            <h4>名稱</h4>
+                            <input  type="text" id="name" placeholder = "請輸入"><br>
+                            <h4>留言</h4>
+                            <textarea name="comment" rows="5" cols="45" id="commend" placeholder = "請輸入"></textarea><br><br>
+                            <button class="btn btn-success" id="btn" onclick="uploadComment()">送出</button><br>
+                        </div>
+                        <HR size="10" align="center" width="100%">
+                        <div class="col-md-offset-5 col-md-5">
+                            <br><br>
+                        </div>
+                    </div>
+            <button onclick="toTop()">TOP</button><br>        
+        </div>
+        
+        <div id="MyBlog">
+            <span id="title">廣告</span>
+            <a target="_blank" href="http://www.nccu.edu.tw/">nccu</a>
+        </div>
+
+
+    </body>
+</html>
